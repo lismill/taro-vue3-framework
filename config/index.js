@@ -1,5 +1,6 @@
 import Components from "unplugin-vue-components/webpack";
 import NutUIResolver from "@nutui/nutui-taro/dist/resolver";
+const path = require("path");
 
 const config = {
   projectName: "xxxxxx",
@@ -15,6 +16,9 @@ const config = {
     750: 1,
     828: 1.81 / 2,
     375: 2 / 1,
+  },
+  alias: {
+    "@": path.resolve(__dirname, "..", "src"),
   },
   sourceRoot: "src",
   outputRoot: "dist",

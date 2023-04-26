@@ -23,7 +23,15 @@ const config = {
   },
   sourceRoot: "src",
   outputRoot: "dist",
-  plugins: ["@tarojs/plugin-html"],
+  plugins: [
+    "@tarojs/plugin-html",
+    [
+      "@dcasia/mini-program-tailwind-webpack-plugin/dist/taro",
+      {
+        enableDebugLog: true,
+      },
+    ],
+  ],
   defineConstants: {},
   copy: {
     patterns: [],
@@ -49,7 +57,7 @@ const config = {
       );
       chain.plugin("unplugin-auto-import").use(
         AutoImport({
-          imports: ["vue", "vue-router", "pinia"],
+          imports: ["vue", "pinia"],
           dts: "types/auto-import.d.ts",
         })
       );

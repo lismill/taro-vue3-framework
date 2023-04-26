@@ -9,8 +9,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import LLayout from "@/components/l-layout/index.vue";
 const total = ref(1);
 </script>
 

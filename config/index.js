@@ -1,4 +1,5 @@
 import Components from "unplugin-vue-components/webpack";
+import AutoImport from "unplugin-auto-import/webpack";
 import NutUIResolver from "@nutui/nutui-taro/dist/resolver";
 const path = require("path");
 
@@ -46,6 +47,12 @@ const config = {
           resolvers: [NutUIResolver({ taro: true })],
         })
       );
+      chain.plugin("unplugin-auto-import").use(
+        AutoImport({
+          imports: ["vue", "vue-router", "pinia"],
+          dts: "types/auto-import.d.ts",
+        })
+      );
     },
     postcss: {
       pxtransform: {
@@ -74,6 +81,12 @@ const config = {
       chain.plugin("unplugin-vue-components").use(
         Components({
           resolvers: [NutUIResolver({ taro: true })],
+        })
+      );
+      chain.plugin("unplugin-auto-import").use(
+        AutoImport({
+          imports: ["vue", "vue-router", "pinia"],
+          dts: "types/auto-import.d.ts",
         })
       );
     },

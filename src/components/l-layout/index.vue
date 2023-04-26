@@ -1,16 +1,26 @@
 <template>
   <!-- left -->
-  <nut-navbar :title="title" class="layout-navbar">
+  <nut-navbar v-if="header" :title="title" class="layout-navbar">
     <template #left>
-      <div>left</div>
+      <template v-if="HeaderLeft">
+        <slot name="HeaderLeft"></slot>
+      </template>
+      <div v-else>
+        <RectLeft></RectLeft>
+      </div>
     </template>
     <template #right>
-      <div>right</div>
+      <template v-if="HeaderRight">
+        <slot name="HeaderRight"></slot>
+      </template>
+      <div v-else>right</div>
     </template>
   </nut-navbar>
 
   <!-- content -->
-  <div class="layout-content"><slot></slot></div>
+  <div class="layout-content" :style="{ paddingTop: header ? '44px' : '0px' }">
+    <slot></slot>
+  </div>
 
   <!-- right -->
   <nut-tabbar
@@ -32,15 +42,22 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, useSlots } from "vue";
+import { RectLeft } from "@nutui/icons-vue";
+
 withDefaults(
   defineProps<{
     title?: string;
+    header?: boolean;
   }>(),
   {
     title: "",
+    header: true,
   }
 );
+
+const { HeaderLeft, HeaderRight } = useSlots();
+
 const menus = [
   {
     tabTitle: "首页",

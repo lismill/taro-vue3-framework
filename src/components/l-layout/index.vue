@@ -24,6 +24,7 @@
 
   <!-- right -->
   <nut-tabbar
+    v-if="bottom"
     class="layout-tabbar"
     @tab-switch="tabSwitch"
     v-model="active"
@@ -49,10 +50,12 @@ withDefaults(
   defineProps<{
     title?: string;
     header?: boolean;
+    bottom?: boolean;
   }>(),
   {
     title: "",
     header: true,
+    bottom: true,
   }
 );
 
@@ -96,8 +99,5 @@ const tabSwitch = (data: string) => {
   top: 0;
   right: 0;
   left: 0;
-}
-.layout-content {
-  padding-top: 88px;
 }
 </style>

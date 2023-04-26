@@ -1,9 +1,9 @@
 body {
   max-width: 750px;
   margin: 0 auto;
-  background-color: #f5f6f7;
 }
 
-.taro_page {
+.taro_router .taro_page {
   overflow-y: auto;
+  background-color: #f5f6f7 !important;
 }

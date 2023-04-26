@@ -6,7 +6,7 @@
         <slot name="HeaderLeft"></slot>
       </template>
       <div v-else>
-        <RectLeft></RectLeft>
+        <RectLeft @click="back"></RectLeft>
       </div>
     </template>
     <template #right>
@@ -27,6 +27,7 @@
 </template>
 
 <script setup lang="ts">
+import Taro from "@tarojs/taro";
 import { RectLeft } from "@nutui/icons-vue";
 
 withDefaults(
@@ -41,6 +42,10 @@ withDefaults(
 );
 
 const { HeaderLeft, HeaderRight } = useSlots();
+
+const back = () => {
+  Taro.navigateBack();
+};
 </script>
 
 <style lang="scss" scoped>

@@ -1,9 +1,19 @@
 export default defineAppConfig({
   pages: [
+    // login
     "pages/login/index",
+
+    // home
     "pages/home/index",
-    "pages/busness/index",
+
+    // develop
+    "pages/develop/index",
+
+    // user
     "pages/user/index",
+
+    // develop
+    "/pages/develop/tour/index",
   ],
   window: {
     backgroundTextStyle: "light",
@@ -21,10 +31,10 @@ export default defineAppConfig({
         selectedIconPath: "./assets/images/menus/home-selected.png",
       },
       {
-        pagePath: "/pages/busness/index",
-        text: "组件",
-        iconPath: "./assets/images/menus/busness-unselected.png",
-        selectedIconPath: "./assets/images/menus/busness-selected.png",
+        pagePath: "/pages/develop/index",
+        text: "开发",
+        iconPath: "./assets/images/menus/develop-unselected.png",
+        selectedIconPath: "./assets/images/menus/develop-selected.png",
       },
       {
         pagePath: "/pages/user/index",

@@ -3,13 +3,17 @@
 </template>
 
 <script setup lang="ts">
-import { GetCommonConfig } from "@/api/common";
 import { useDidShow } from "@tarojs/taro";
+import useStoreCommon from "@/store/common";
+import { GetCommonConfig } from "@/api/common";
 const init = async () => {
   const res = await GetCommonConfig();
   console.log("GetCommonConfig", res);
 };
 useDidShow(() => init());
+
+const USE_STORE_COMMON = useStoreCommon();
+console.log(USE_STORE_COMMON.version);
 </script>
 
 <style lang="scss" scoped></style>

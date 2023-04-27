@@ -8,8 +8,8 @@ taro-vue3-framework
 | ----------------------------------------- |
 | eslint + husky + commitlint + lint-staged |
 | tailwindcss                               |
-| pinia                                     |
 | axios                                     |
+| pinia                                     |
 
 ## eslint + husky + commitlint + lint-staged
 
@@ -455,4 +455,61 @@ export const GetCommonConfig = () => {
 import { GetCommonConfig } from "@/api/common";
 const res = await GetCommonConfig();
 console.log("data:::", res);
+```
+
+## pinia
+
+### 安装
+
+`npm install --save pinia`
+
+### 配置
+
+`app.ts`
+
+```ts
+import { createPinia } from "pinia";
+
+const pinia = createPinia();
+App.use(pinia);
+```
+
+`src/store/common.ts`
+
+```ts
+import { defineStore } from "pinia";
+
+const useStoreCommon = defineStore("STORE_COMMON", {
+  state: () => {
+    return {
+      // 版本号
+      version: "v1.0",
+    };
+  },
+  actions: {
+    changeVersion(v: string) {
+      this.version = v;
+    },
+  },
+});
+export default useStoreCommon;
+```
+
+### 使用
+
+`*.vue`
+
+```vue
+<template>
+  <l-layout :header="false"> 版本号: {{ USE_STORE_COMMON.version }} </l-layout>
+</template>
+
+<script setup lang="ts">
+import useStoreCommon from "@/store/common";
+const USE_STORE_COMMON = useStoreCommon();
+
+setTimeout(() => {
+  USE_STORE_COMMON.changeVersion("v2.0");
+}, 3000);
+</script>
 ```

@@ -1,9 +1,11 @@
 <template>
-  <l-layout :header="false" :full-x="true">
+  <l-layout :full-x="true" :full-y="true">
     <!-- header -->
-    <view class="header">
-      <view class="user-info flex items-center">
-        <dl class="mx-[32px] flex items-center">
+    <view
+      class="header h-[400px] px-[32px] bg-[#aaaaaa] rounded-[0 0 32px 32px]"
+    >
+      <view class="user-info flex items-center h-[218px]">
+        <dl class="flex items-center">
           <dt class="w-[86px] h-[86px] rounded-[50%] bg-[#999999]"></dt>
           <dd class="ml-[16px]">
             <p class="font-medium text-[32px]">微信用户</p>
@@ -11,7 +13,7 @@
           </dd>
         </dl>
       </view>
-      <view class="account"></view>
+      <view class="account h-[150px] bg-[#dddddd] rounded-[16px]"> </view>
     </view>
     <!-- bottom -->
     <view class="m-[32px]">
@@ -42,20 +44,3 @@
 <script setup lang="ts">
 import { useVersion } from "@/hooks/useVersion";
 </script>
-
-<style lang="scss" scoped>
-.header {
-  height: 400px;
-  border-radius: 0 0 32px 32px;
-  background-color: #aaaaaa;
-  .user-info {
-    height: 218px;
-  }
-  .account {
-    margin: 0 32px;
-    height: 150px;
-    border-radius: 16px;
-    background-color: #dddddd;
-  }
-}
-</style>

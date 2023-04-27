@@ -1,29 +1,32 @@
 <template>
   <!-- left -->
-  <nut-navbar v-if="header" :title="title" class="layout-navbar">
-    <template #left>
+  <view v-if="header" class="layout-navbar flex justify-between items-center">
+    <view class="left">
       <template v-if="HeaderLeft">
         <slot name="HeaderLeft"></slot>
       </template>
-      <div v-else>
-        <RectLeft @click="back"></RectLeft>
-      </div>
-    </template>
-    <template #right>
+      <view v-else class="flex items-center">
+        <RectLeft @click="back" width="16px"></RectLeft>
+      </view>
+    </view>
+    <view class="center">
+      {{ title }}
+    </view>
+    <view class="right">
       <template v-if="HeaderRight">
         <slot name="HeaderRight"></slot>
       </template>
-      <div v-else>right</div>
-    </template>
-  </nut-navbar>
+    </view>
+  </view>
 
   <!-- content -->
-  <div
-    class="layout-content px-[32px]"
-    :style="{ paddingTop: header ? '44px' : '0px' }"
+  <view
+    class="layout-content"
+    :class="{ 'mx-[32px]': !fullX, 'my-[32px]': !fullY }"
+    :style="{ paddingTop: header ? '56px' : '0px' }"
   >
     <slot></slot>
-  </div>
+  </view>
 </template>
 
 <script setup lang="ts">
@@ -34,18 +37,20 @@ withDefaults(
   defineProps<{
     title?: string;
     header?: boolean;
+    fullX?: boolean;
+    fullY?: boolean;
   }>(),
   {
     title: "",
     header: true,
+    fullX: false,
+    fullY: false,
   }
 );
 
 const { HeaderLeft, HeaderRight } = useSlots();
 
-const back = () => {
-  Taro.navigateBack();
-};
+const back = () => Taro.navigateBack();
 </script>
 
 <style lang="scss" scoped>
@@ -54,5 +59,23 @@ const back = () => {
   top: 0;
   right: 0;
   left: 0;
+  height: 112px;
+  padding: 0 32px;
+  font-size: 32px;
+  background-color: #ffffff;
+  .left,
+  .right {
+    width: 140px;
+  }
+  .right {
+    text-align: right;
+  }
+  .center {
+    flex: 1;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <l-layout title="我的"> user </l-layout>
+  <l-layout :header="false"> user </l-layout>
 </template>
 
 <script setup lang="ts"></script>

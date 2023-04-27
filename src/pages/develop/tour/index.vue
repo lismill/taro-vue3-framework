@@ -1,5 +1,5 @@
 <template>
-  <l-layout>
+  <l-layout title="Tour 引导">
     <l-tour ref="refLTour" :steps="steps">
       <nut-grid class="mt-[100px]">
         <nut-grid-item id="target1" text="1"></nut-grid-item>
@@ -9,11 +9,11 @@
       </nut-grid>
     </l-tour>
 
-    <div class="mt-[32px]">
+    <view class="mt-[32px]">
       <nut-button block type="primary" @click="refLTour.open()">
         打开引导
       </nut-button>
-    </div>
+    </view>
   </l-layout>
 </template>
 

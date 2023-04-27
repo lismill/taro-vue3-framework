@@ -1,8 +1,8 @@
 <template>
-  <div class="l-tour">
+  <view class="l-tour">
     <nut-tour class="l-tour" v-model="visible" :steps="steps"></nut-tour>
     <slot></slot>
-  </div>
+  </view>
 </template>
 
 <script setup lang="ts">

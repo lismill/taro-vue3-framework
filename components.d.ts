@@ -7,6 +7,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    LCard: typeof import('./src/components/l-card/index.vue')['default']
     LLayout: typeof import('./src/components/l-layout/index.vue')['default']
     LTour: typeof import('./src/components/l-tour/index.vue')['default']
     NutButton: typeof import('@nutui/nutui-taro')['Button']
@@ -14,10 +15,7 @@ declare module '@vue/runtime-core' {
     NutCellGroup: typeof import('@nutui/nutui-taro')['CellGroup']
     NutGrid: typeof import('@nutui/nutui-taro')['Grid']
     NutGridItem: typeof import('@nutui/nutui-taro')['GridItem']
-    NutNavbar: typeof import('@nutui/nutui-taro')['Navbar']
-    NutSwitch: typeof import('@nutui/nutui-taro')['Switch']
-    NutTabbar: typeof import('@nutui/nutui-taro')['Tabbar']
-    NutTabbarItem: typeof import('@nutui/nutui-taro')['TabbarItem']
+    NutTable: typeof import('@nutui/nutui-taro')['Table']
     NutTour: typeof import('@nutui/nutui-taro')['Tour']
   }
 }

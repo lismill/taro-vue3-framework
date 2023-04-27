@@ -14,6 +14,7 @@ export default defineAppConfig({
 
     // develop
     "/pages/develop/tour/index",
+    "/pages/develop/card/index",
   ],
   window: {
     backgroundTextStyle: "light",

@@ -1,8 +1,8 @@
 <template>
-  <div class="login w-full h-full px-[60px] pt-[300px] bg-[#f2f4fa]">
+  <view class="login w-full h-full px-[60px] pt-[300px] bg-[#f2f4fa]">
     <h1 class="mb-64px">欢迎登录系统</h1>
     <nut-button type="primary" block @click="login">登录</nut-button>
-  </div>
+  </view>
 </template>
 
 <script setup lang="ts">

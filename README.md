@@ -126,7 +126,7 @@ import "windi.css";
 
 `src/packages/axios/index.ts`
 
-```
+```ts
 import Taro from "@tarojs/taro";
 import axios, { AxiosRequestConfig } from "axios";
 import qs from "qs";
@@ -208,7 +208,7 @@ service.interceptors.request.use(
     addPending(config);
 
     // 开启进度条
-    Taro.showLoading();
+    (document.getElementById("loading") as any).style.display = "block";
 
     // 根据业务拦截请求
     return business.request(config);
@@ -227,14 +227,14 @@ service.interceptors.response.use(
     removePending(response);
 
     // 关闭进度条
-    Taro.hideLoading();
+    (document.getElementById("loading") as any).style.display = "none";
 
     // 根据业务拦截响应
     return business.response(response);
   },
   (error) => {
     // 关闭进度条
-    Taro.hideLoading();
+    (document.getElementById("loading") as any).style.display = "none";
     if (axios.isCancel(error)) return {};
 
     // HTTP 异常
@@ -260,7 +260,7 @@ export default service;
 
 `src/packages/axios/business.ts`
 
-```
+```ts
 import { AxiosRequestConfig, AxiosResponse } from "axios";
 import qs from "qs";
 import { removePending } from "./index";
@@ -392,11 +392,56 @@ const config = {
 export default config;
 ```
 
+### 加载中动画
+
+`index.html`;
+
+```
+
+<div id="loading"></div>
+```
+
+`src/assets/styles/common.scss`
+
+```scss
+#loading {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  &::after {
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 50%;
+    width: 38px;
+    height: 38px;
+    margin: -19px 0 0 -19px;
+    border: 4px solid #323232;
+    border-top-color: transparent;
+    border-radius: 100%;
+    animation: circle infinite 0.75s linear;
+  }
+}
+
+@keyframes circle {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+```
+
 ### 使用
 
 `src/api/common/index.ts`
 
-```
+```ts
 import request from "@/packages/axios";
 
 export const GetCommonConfig = () => {

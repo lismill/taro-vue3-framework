@@ -79,7 +79,7 @@ service.interceptors.request.use(
     addPending(config);
 
     // 开启进度条
-    Taro.showLoading();
+    (document.getElementById("loading") as any).style.display = "block";
 
     // 根据业务拦截请求
     return business.request(config);
@@ -98,14 +98,14 @@ service.interceptors.response.use(
     removePending(response);
 
     // 关闭进度条
-    Taro.hideLoading();
+    (document.getElementById("loading") as any).style.display = "none";
 
     // 根据业务拦截响应
     return business.response(response);
   },
   (error) => {
     // 关闭进度条
-    Taro.hideLoading();
+    (document.getElementById("loading") as any).style.display = "none";
     if (axios.isCancel(error)) return {};
 
     // HTTP 异常

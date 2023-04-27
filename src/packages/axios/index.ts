@@ -1,4 +1,3 @@
-import Taro from "@tarojs/taro";
 import axios, { AxiosRequestConfig } from "axios";
 import qs from "qs";
 import business from "./business";

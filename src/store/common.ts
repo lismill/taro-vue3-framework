@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 
-const useStoreCommon = defineStore("STORE_COMMON", {
+const useStoreCommon = defineStore("COMMON", {
   state: () => {
     return {
       // 版本号

@@ -32,6 +32,7 @@
 <script setup lang="ts">
 import Taro from "@tarojs/taro";
 import { RectLeft } from "@nutui/icons-vue";
+import { useTaroEnv } from "@/hooks/useTaroEnv";
 
 withDefaults(
   defineProps<{
@@ -42,7 +43,7 @@ withDefaults(
   }>(),
   {
     title: "",
-    header: true,
+    header: useTaroEnv() === "h5",
     fullX: false,
     fullY: false,
   }

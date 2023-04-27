@@ -1,5 +1,5 @@
 <template>
-  <l-layout :header="false">
+  <l-layout>
     <view>Home</view>
     <view>数据条数: {{ total }}</view>
   </l-layout>

@@ -1,5 +1,5 @@
 <template>
-  <l-layout :header="false" :full-x="true" :full-y="true">
+  <l-layout :header="false" :full-x="true">
     <!-- header -->
     <view class="header">
       <view class="user-info flex items-center">

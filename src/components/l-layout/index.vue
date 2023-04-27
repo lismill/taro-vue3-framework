@@ -59,6 +59,7 @@ const back = () => Taro.navigateBack();
   top: 0;
   right: 0;
   left: 0;
+  z-index: 999;
   height: 112px;
   padding: 0 32px;
   font-size: 32px;

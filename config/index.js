@@ -98,7 +98,7 @@ const config = {
         })
       );
     },
-    publicPath: "./",
+    publicPath: process.env.NODE_ENV === "development" ? "/" : "./",
     staticDirectory: "static",
     esnextModules: ["nutui-taro", "icons-vue-taro"],
     postcss: {

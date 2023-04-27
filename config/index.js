@@ -98,7 +98,7 @@ const config = {
         })
       );
     },
-    publicPath: "/",
+    publicPath: "./",
     staticDirectory: "static",
     esnextModules: ["nutui-taro", "icons-vue-taro"],
     postcss: {

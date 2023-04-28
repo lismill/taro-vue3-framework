@@ -24,5 +24,3 @@ const jump = (url: string) => {
   Taro.navigateTo({ url });
 };
 </script>
-
-<style lang="scss" scoped></style>

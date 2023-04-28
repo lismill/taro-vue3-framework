@@ -9,19 +9,9 @@
 
 <script setup lang="ts">
 import Taro from "@tarojs/taro";
+import "./index.scss";
 
 const login = () => {
   Taro.switchTab({ url: "/pages/home/index" });
 };
 </script>
-
-<style lang="scss" scoped>
-.login {
-  h1 {
-    height: 45px;
-    font-size: 44px;
-    color: #1966ff;
-    line-height: 45px;
-  }
-}
-</style>

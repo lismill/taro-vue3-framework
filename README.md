@@ -142,6 +142,7 @@ const { UnifiedWebpackPluginV5 } = require('weapp-tailwindcss-webpack-plugin')
 ### 安装
 
 `npm install axios --save`
+`npm install axios-taro-adapter --save`
 
 ### 配置
 
@@ -154,7 +155,7 @@ import qs from "qs";
 import business from "./business";
 
 // 创建请求
-const service = axios.create({
+const service: any = axios.create({
   baseURL: "",
   headers: {
     "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
@@ -229,7 +230,7 @@ service.interceptors.request.use(
     addPending(config);
 
     // 开启进度条
-    (document.getElementById("loading") as any).style.display = "block";
+    Taro.showLoading();
 
     // 根据业务拦截请求
     return business.request(config);
@@ -248,14 +249,14 @@ service.interceptors.response.use(
     removePending(response);
 
     // 关闭进度条
-    (document.getElementById("loading") as any).style.display = "none";
+    Taro.hideLoading();
 
     // 根据业务拦截响应
     return business.response(response);
   },
   (error) => {
     // 关闭进度条
-    (document.getElementById("loading") as any).style.display = "none";
+    Taro.hideLoading();
     if (axios.isCancel(error)) return {};
 
     // HTTP 异常

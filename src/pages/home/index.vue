@@ -20,5 +20,3 @@ useDidShow(() => init());
 const USE_STORE_COMMON = useStoreCommon();
 console.log(USE_STORE_COMMON.version);
 </script>
-
-<style lang="scss" scoped></style>

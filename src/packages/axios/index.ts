@@ -1,14 +1,17 @@
+import Taro from "@tarojs/taro";
 import axios, { AxiosRequestConfig } from "axios";
+import { TaroAdapter } from "axios-taro-adapter";
 import qs from "qs";
 import business from "./business";
 
 // 创建请求
-const service = axios.create({
+const service: any = axios.create({
   baseURL: "",
   headers: {
     "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
   },
   timeout: 1000 * 20,
+  adapter: TaroAdapter,
   transformRequest: [
     (data: AxiosRequestConfig) => {
       return JSON.stringify(data);
@@ -78,7 +81,7 @@ service.interceptors.request.use(
     addPending(config);
 
     // 开启进度条
-    (document.getElementById("loading") as any).style.display = "block";
+    Taro.showLoading();
 
     // 根据业务拦截请求
     return business.request(config);
@@ -97,14 +100,14 @@ service.interceptors.response.use(
     removePending(response);
 
     // 关闭进度条
-    (document.getElementById("loading") as any).style.display = "none";
+    Taro.hideLoading();
 
     // 根据业务拦截响应
     return business.response(response);
   },
   (error) => {
     // 关闭进度条
-    (document.getElementById("loading") as any).style.display = "none";
+    Taro.hideLoading();
     if (axios.isCancel(error)) return {};
 
     // HTTP 异常

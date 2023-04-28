@@ -1,5 +1,5 @@
 export default {
   navigationBarTextStyle: "white",
-  navigationBarBackgroundColor: "#1370F3",
+  navigationBarBackgroundColor: "#535fed",
   navigationBarTitleText: "我的",
 };

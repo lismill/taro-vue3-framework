@@ -37,17 +37,6 @@
     </view>
     <!-- bottom -->
     <view class="m-[32px] mt-[0]">
-      <view class="hot relative">
-        <image
-          class="block w-[100%] h-[72px]"
-          src="@/assets/images/user/hot.png"
-        />
-        <view
-          class="absolute top-[16px] left-[32px] text-[#F9E1BE] text-[28px] font-[500]"
-        >
-          升级会员专享超级权益
-        </view>
-      </view>
       <l-card title="常用功能" shadow="none" rounded="0 0 6px 6px">
         <view class="flex justify-between">
           <dl

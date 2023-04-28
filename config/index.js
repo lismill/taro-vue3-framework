@@ -40,6 +40,7 @@ const config = {
   },
   sass: {
     data: `@import "@nutui/nutui-taro/dist/styles/variables.scss";`,
+    resource: [path.resolve(__dirname, "..", "src/assets/styles/theme.scss")],
   },
   mini: {
     optimizeMainPackage: {

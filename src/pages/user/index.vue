@@ -1,40 +1,105 @@
 <template>
   <l-layout :full-x="true" :full-y="true">
-    <!-- header -->
-    <view
-      class="header h-[400px] px-[32px] bg-[#aaaaaa] rounded-[0 0 32px 32px]"
-    >
-      <view class="user-info flex items-center h-[218px]">
-        <dl class="flex items-center">
-          <dt class="w-[86px] h-[86px] rounded-[50%] bg-[#999999]"></dt>
-          <dd class="ml-[16px]">
-            <p class="font-medium text-[32px]">微信用户</p>
-            <p class="text-[26px] mt-[16px]">15688889999</p>
-          </dd>
-        </dl>
-      </view>
-      <view class="account h-[150px] bg-[#dddddd] rounded-[16px]"> </view>
+    <view class="header px-[32px] pt-[32px]">
+      <l-card shadow="none">
+        <!-- info -->
+        <view class="info flex justify-between items-center">
+          <dl class="flex items-center">
+            <dt class="w-[116px] h-[116px] bg-[#dddddd] rounded-[50%]"></dt>
+            <dd class="ml-[24px]">
+              <p class="name text-[36px] font-[600]">薛定谔的猫</p>
+              <p class="phone">15688889999</p>
+            </dd>
+          </dl>
+          <view>
+            <image
+              class="w-[76px] h-[76px]"
+              src="@/assets/images/user/ercode.png"
+            />
+          </view>
+        </view>
+        <!-- data -->
+        <view class="data px-[12px] flex justify-between">
+          <dl
+            v-for="{ name, data } in [
+              { name: '我的余额', data: 68.89 },
+              { name: '我的订单', data: 73 },
+              { name: '我的签到', data: 378 },
+            ]"
+            :key="name"
+            class="text-center mt-[32px]"
+          >
+            <dt class="text-[36px] font-[600]">{{ data }}</dt>
+            <dd class="text-[24px] text-[#666666]">{{ name }}</dd>
+          </dl>
+        </view>
+      </l-card>
     </view>
     <!-- bottom -->
-    <view class="m-[32px]">
-      <l-card title="常用功能" shadow="none">
+    <view class="m-[32px] mt-[0]">
+      <view class="hot relative">
+        <image
+          class="block w-[100%] h-[72px]"
+          src="@/assets/images/user/hot.png"
+        />
+        <view
+          class="absolute top-[16px] left-[32px] text-[#F9E1BE] text-[28px] font-[500]"
+        >
+          升级会员专享超级权益
+        </view>
+      </view>
+      <l-card title="常用功能" shadow="none" rounded="0 0 6px 6px">
         <view class="flex justify-between">
           <dl
-            v-for="item in ['我的预约', '关于我们', '版本号', '退出登录']"
-            :key="item"
+            v-for="{ name, icon } in [
+              { name: '我的预约', icon: 'use1' },
+              { name: '关于我们', icon: 'use2' },
+              { name: '版本号', icon: 'use3' },
+              { name: '退出登录', icon: 'use4' },
+            ]"
+            :key="name"
             class="text-center"
           >
             <dt
-              class="w-[82px] h-[82px] bg-[#dddddd] rounded-[50%] mx-[auto]"
-            ></dt>
-            <dd class="mt-16px text-[24px]">{{ item }}</dd>
+              class="w-[98px] h-[98px] bg-[#f5f6f7] rounded-[50%] mx-[auto] flex items-center justify-center"
+            >
+              <image
+                class="w-[60%] h-[60%]"
+                :src="require(`@/assets/images/user/${icon}.png`)"
+              ></image>
+            </dt>
+            <dd class="mt-[16px] text-[24px] text-[#666666]">{{ name }}</dd>
           </dl>
         </view>
       </l-card>
       <nut-cell-group>
-        <nut-cell title="我的预约" is-link></nut-cell>
-        <nut-cell title="关于我们" is-link></nut-cell>
-        <nut-cell title="退出登录" is-link></nut-cell>
+        <nut-cell title="我的预约" is-link>
+          <template #link>
+            <image
+              class="w-[32px] h-[32px]"
+              src="@/assets/images/user/use1.png"
+            >
+            </image>
+          </template>
+        </nut-cell>
+        <nut-cell title="关于我们" is-link>
+          <template #link>
+            <image
+              class="w-[32px] h-[32px]"
+              src="@/assets/images/user/use2.png"
+            >
+            </image>
+          </template>
+        </nut-cell>
+        <nut-cell title="退出登录" is-link>
+          <template #link>
+            <image
+              class="w-[32px] h-[32px]"
+              src="@/assets/images/user/use3.png"
+            >
+            </image>
+          </template>
+        </nut-cell>
         <nut-cell title="版本号" :desc="useVersion()"></nut-cell>
       </nut-cell-group>
     </view>
@@ -43,4 +108,5 @@
 
 <script setup lang="ts">
 import { useVersion } from "@/hooks/useVersion";
+import "./index.scss";
 </script>

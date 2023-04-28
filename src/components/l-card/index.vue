@@ -2,7 +2,7 @@
   <view
     :class="`l-card p-[32px]`"
     :style="{
-      borderRadius: `${rounded}px`,
+      borderRadius: rounded,
       boxShadow: shadow,
       marginTop: `${top}px`,
       marginBottom: `${bottom}px`,
@@ -13,8 +13,11 @@
     <view v-if="header">
       <slot name="header"></slot>
     </view>
-    <view v-else class="flex justify-between items-center h-[32px] mb-[32px]">
-      <h3 v-if="title" class="text-[32px]">{{ title }}</h3>
+    <view
+      v-if="!header && title"
+      class="flex justify-between items-center h-[32px] mb-[32px]"
+    >
+      <h3 class="text-[32px]">{{ title }}</h3>
       <slot name="more"></slot>
     </view>
     <!-- content -->
@@ -28,7 +31,7 @@
 withDefaults(
   defineProps<{
     title?: string;
-    rounded?: number;
+    rounded?: string;
     shadow?: string;
     top?: number;
     bottom?: number;
@@ -36,7 +39,7 @@ withDefaults(
   }>(),
   {
     title: "",
-    rounded: 6,
+    rounded: "6px",
     shadow: "0 1px 8px 0 rgb(237, 238, 241)",
     top: 0,
     bottom: 16,

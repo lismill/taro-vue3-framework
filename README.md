@@ -70,42 +70,63 @@ module.exports = {
 
 ### 安装
 
-`npm install @dcasia/mini-program-tailwind-webpack-plugin --save-dev`
+`npm install -D tailwindcss postcss autoprefixer`
+`npx tailwindcss init`
 
 ### 配置
 
-`config/index.js`
+`postcss.config.js`
 
 ```js
-plugins: [
-  // ...
-  [
-    "@dcasia/mini-program-tailwind-webpack-plugin/dist/taro",
-    {
-      enableDebugLog: true,
-    },
-  ],
-],
-```
-
-`windi.config.js`
-
-```js
-export default {
-  prefixer: false,
-  extract: {
-    exclude: ["node_modules", ".git", "dist"],
-  },
-  corePlugins: {
-    container: false,
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
   },
 };
 ```
 
-`app.ts`
+`tailwind.config.js`
+
+```js
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./public/index.html", "./src/**/*.{html,js,ts,jsx,tsx,vue}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+```
+
+`src/assets/styles/app.scss`
+
+```scss
+@import "tailwindcss/base";
+@import "tailwindcss/utilities";
+```
+
+`config/index.js`
 
 ```ts
-import "windi.css";
+const { UnifiedWebpackPluginV5 } = require('weapp-tailwindcss-webpack-plugin')
+
+{
+  mini: {
+    webpackChain(chain, webpack) {
+      chain.merge({
+        plugin: {
+          install: {
+            plugin: UnifiedWebpackPluginV5,
+            args: [{
+              appType: 'taro'
+            }]
+          }
+        }
+      })
+    }
+  }
+}
 ```
 
 ### 使用

@@ -2,6 +2,7 @@ import Components from "unplugin-vue-components/webpack";
 import AutoImport from "unplugin-auto-import/webpack";
 import NutUIResolver from "@nutui/nutui-taro/dist/resolver";
 const path = require("path");
+const { UnifiedWebpackPluginV5 } = require("weapp-tailwindcss-webpack-plugin");
 
 const config = {
   projectName: "xxxxxx",
@@ -23,15 +24,7 @@ const config = {
   },
   sourceRoot: "src",
   outputRoot: "dist",
-  plugins: [
-    "@tarojs/plugin-html",
-    [
-      "@dcasia/mini-program-tailwind-webpack-plugin/dist/taro",
-      {
-        enableDebugLog: true,
-      },
-    ],
-  ],
+  plugins: ["@tarojs/plugin-html"],
   defineConstants: {},
   copy: {
     patterns: [],
@@ -64,6 +57,14 @@ const config = {
           dts: "types/auto-import.d.ts",
         })
       );
+      chain.merge({
+        plugin: {
+          install: {
+            plugin: UnifiedWebpackPluginV5,
+            args: [{ appType: "taro" }],
+          },
+        },
+      });
     },
     postcss: {
       pxtransform: {

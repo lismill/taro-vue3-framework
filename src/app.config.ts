@@ -11,8 +11,12 @@ export default defineAppConfig({
 
     // develop
     "pages/develop/index/index",
-    "pages/develop/tour/index",
-    "pages/develop/card/index",
+  ],
+  subpackages: [
+    {
+      root: "packageA",
+      pages: ["pages/develop/tour/index", "pages/develop/card/index"],
+    },
   ],
   window: {
     backgroundColor: "#f5f6f7",

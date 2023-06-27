@@ -7,6 +7,9 @@ export default defineAppConfig({
     "pages/develop/index/index",
     "pages/develop/tour/index",
     "pages/develop/card/index",
+
+    // _login
+    "pages/_login/index",
   ],
   window: {
     backgroundColor: "#f7f8fa",

@@ -16,7 +16,7 @@ declare module '@vue/runtime-core' {
     NutCellGroup: typeof import('@nutui/nutui-taro')['CellGroup']
     NutGrid: typeof import('@nutui/nutui-taro')['Grid']
     NutGridItem: typeof import('@nutui/nutui-taro')['GridItem']
-    NutTable: typeof import('@nutui/nutui-taro')['Table']
+    NutInput: typeof import('@nutui/nutui-taro')['Input']
     NutTour: typeof import('@nutui/nutui-taro')['Tour']
   }
 }

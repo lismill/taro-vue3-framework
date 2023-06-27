@@ -9,6 +9,7 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     LCard: typeof import('./src/components/l-card/index.vue')['default']
     LLayout: typeof import('./src/components/l-layout/index.vue')['default']
+    LStatistics: typeof import('./src/components/l-statistics/index.vue')['default']
     LTour: typeof import('./src/components/l-tour/index.vue')['default']
     NutButton: typeof import('@nutui/nutui-taro')['Button']
     NutCell: typeof import('@nutui/nutui-taro')['Cell']

@@ -1,6 +1,8 @@
 import { createApp } from "vue";
 import { createPinia } from "pinia";
 import "./assets/styles/app.scss";
+import { IconFont } from "@nutui/icons-vue";
+import "@nutui/icons-vue/dist/style_iconfont.css";
 
 const App = createApp({
   onShow(options) {
@@ -12,5 +14,7 @@ const App = createApp({
 // pinia
 const pinia = createPinia();
 App.use(pinia);
+App.use(pinia);
+App.use(IconFont);
 
 export default App;

@@ -1,6 +1,6 @@
 <template>
   <l-layout :header="false">
-    <nut-cell-group>
+    <nut-cell-group title="引导">
       <nut-cell
         v-for="{ title, path } in lists"
         :key="title"
@@ -15,7 +15,6 @@
 import Taro from "@tarojs/taro";
 
 const lists = [
-  { title: "Login 登录页面", path: "/pages/login/index" },
   { title: "Tour 引导", path: "/pages/develop/tour/index" },
   { title: "Card 卡片", path: "/pages/develop/card/index" },
 ];

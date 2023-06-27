@@ -1,22 +1,13 @@
 <template>
-  <l-layout>
-    <view>Home</view>
-    <view>数据条数: {{ total }}</view>
-  </l-layout>
+  <l-card
+    :top="0"
+    :bottom="0"
+    class="h-[100%] w-[100wh] flex justify-center items-center"
+  >
+    Home
+  </l-card>
 </template>
 
-<script setup lang="ts">
-import { useDidShow } from "@tarojs/taro";
-import useStoreCommon from "@/store/common";
-import { GetCommonConfig } from "@/api/common";
-const total = ref(0);
-const init = async () => {
-  const res = await GetCommonConfig();
-  total.value = (res as any).total;
-  console.log("GetCommonConfig", res);
-};
-useDidShow(() => init());
+<script setup lang="ts"></script>
 
-const USE_STORE_COMMON = useStoreCommon();
-console.log(USE_STORE_COMMON.version);
-</script>
+<style lang="scss" scoped></style>

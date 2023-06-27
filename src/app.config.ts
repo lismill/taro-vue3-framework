@@ -1,13 +1,7 @@
 export default defineAppConfig({
   pages: [
-    // login
-    "pages/login/index",
-
     // home
     "pages/home/index",
-
-    // user
-    "pages/user/index",
 
     // develop
     "pages/develop/index/index",
@@ -15,7 +9,7 @@ export default defineAppConfig({
     "pages/develop/card/index",
   ],
   window: {
-    backgroundColor: "#f5f6f7",
+    backgroundColor: "#f7f8fa",
     backgroundTextStyle: "light",
     navigationBarBackgroundColor: "#fff",
     navigationBarTitleText: "WeChat",
@@ -27,20 +21,14 @@ export default defineAppConfig({
       {
         pagePath: "pages/home/index",
         text: "首页",
-        iconPath: "./assets/images/menus/home-unselected.png",
-        selectedIconPath: "./assets/images/menus/home-selected.png",
-      },
-      {
-        pagePath: "pages/develop/index/index",
-        text: "开发",
         iconPath: "./assets/images/menus/develop-unselected.png",
         selectedIconPath: "./assets/images/menus/develop-selected.png",
       },
       {
-        pagePath: "pages/user/index",
-        text: "我的",
-        iconPath: "./assets/images/menus/user-unselected.png",
-        selectedIconPath: "./assets/images/menus/user-selected.png",
+        pagePath: "pages/develop/index/index",
+        text: "开发者工具",
+        iconPath: "./assets/images/menus/develop-unselected.png",
+        selectedIconPath: "./assets/images/menus/develop-selected.png",
       },
     ],
   },

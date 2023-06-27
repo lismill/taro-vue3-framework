@@ -1,6 +1,6 @@
 <template>
   <view
-    :class="`l-card p-[32px]`"
+    :class="[`l-card p-[32px]`, contentClass]"
     :style="{
       borderRadius: rounded,
       boxShadow: shadow,
@@ -17,7 +17,7 @@
       v-if="!header && title"
       class="flex justify-between items-center h-[32px] mb-[32px]"
     >
-      <h3 class="text-[32px]">{{ title }}</h3>
+      <h3 class="text-[32px] font-[500]">{{ title }}</h3>
       <slot name="more"></slot>
     </view>
     <!-- content -->
@@ -36,6 +36,7 @@ withDefaults(
     top?: number;
     bottom?: number;
     background?: string;
+    contentClass?: string;
   }>(),
   {
     title: "",
@@ -44,6 +45,7 @@ withDefaults(
     top: 0,
     bottom: 16,
     background: "#ffffff",
+    contentClass: "",
   }
 );
 

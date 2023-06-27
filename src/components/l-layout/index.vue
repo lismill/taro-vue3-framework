@@ -22,7 +22,7 @@
   <!-- content -->
   <view
     class="layout-content"
-    :class="{ 'mx-[32px]': !fullX, 'my-[32px]': !fullY }"
+    :class="[{ 'mx-[32px]': !fullX, 'my-[32px]': !fullY }, contentClass]"
     :style="{ paddingTop: header ? '56px' : '0px' }"
   >
     <slot></slot>
@@ -40,12 +40,14 @@ withDefaults(
     header?: boolean;
     fullX?: boolean;
     fullY?: boolean;
+    contentClass: string;
   }>(),
   {
     title: "",
     header: false,
     fullX: false,
     fullY: false,
+    contentClass: "",
   }
 );
 

@@ -2,7 +2,7 @@
   <l-card
     :top="0"
     :bottom="0"
-    class="h-[100%] w-[100wh] flex justify-center items-center"
+    class="h-[100vh] w-[100wh] flex justify-center items-center"
   >
     Home
   </l-card>

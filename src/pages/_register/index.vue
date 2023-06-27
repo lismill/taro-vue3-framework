@@ -1,7 +1,7 @@
 <template>
   <view class="login w-[100wh] h-[100vh] px-[60rpx] bg-[#ffffff]">
     <!-- title -->
-    <h2 class="pt-[106rpx] text-[60rpx] font-[500] leading-[1.65]">登录系统</h2>
+    <h2 class="pt-[106rpx] text-[60rpx] font-[500] leading-[1.65]">注册账号</h2>
     <!-- form -->
     <view class="mt-[106rpx]">
       <view
@@ -22,7 +22,7 @@
       </view>
       <view class="mt-[48rpx]">
         <nut-button type="primary" block shape="square" class="!rounded-[8rpx]">
-          登录系统
+          注册账号
         </nut-button>
       </view>
       <view
@@ -36,12 +36,12 @@
     <view
       class="fixed left-0 right-0 bottom-[120rpx] text-center flex justify-center items-center"
     >
-      <view>还没有账号?</view>
+      <view>已有账号?</view>
       <view
         class="p-[8rpx] color-primary"
-        @click="useJumpPath('/pages/_register/index', 'redirectTo')"
+        @click="useJumpPath('/pages/_login/index', 'redirectTo')"
       >
-        注册账号
+        登录系统
       </view>
     </view>
   </view>
@@ -51,9 +51,14 @@
 import { reactive } from "vue";
 import { useJumpPath } from "@/hooks/useJumpPath";
 
-const form = reactive<{ phone: string; password: string }>({
+const form = reactive<{
+  phone: string;
+  password: string;
+  passwordRepeat: string;
+}>({
   phone: "",
   password: "",
+  passwordRepeat: "",
 });
 const forms = [
   {
@@ -67,6 +72,12 @@ const forms = [
     prop: "password",
     type: "password",
     placeholder: "请输入密码 (8-16位字母数字组合)",
+  },
+  {
+    title: "重复密码",
+    prop: "passwordRepeat",
+    type: "password",
+    placeholder: "请重复密码 (8-16位字母数字组合)",
   },
 ];
 </script>

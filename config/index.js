@@ -43,6 +43,10 @@ const config = {
     resource: [path.resolve(__dirname, "..", "src/assets/styles/theme.scss")],
   },
   mini: {
+    enableExtract: true,
+    miniCssExtractPluginOption: {
+      ignoreOrder: true,
+    },
     optimizeMainPackage: {
       enable: true,
     },

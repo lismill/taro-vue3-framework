@@ -10,6 +10,10 @@ export default defineAppConfig({
 
     // _login
     "pages/_login/index",
+    // _register
+    "pages/_register/index",
+    // _forget-password
+    "pages/_forget-password/index",
   ],
   window: {
     backgroundColor: "#f7f8fa",
@@ -19,17 +23,18 @@ export default defineAppConfig({
     navigationBarTextStyle: "black",
   },
   tabBar: {
-    selectedColor: "#999999",
+    color: "#a9aeb8",
+    selectedColor: "#165dff",
     list: [
       {
         pagePath: "pages/home/index",
         text: "首页",
-        iconPath: "./assets/images/menus/develop-unselected.png",
-        selectedIconPath: "./assets/images/menus/develop-selected.png",
+        iconPath: "./assets/images/menus/home-unselected.png",
+        selectedIconPath: "./assets/images/menus/home-selected.png",
       },
       {
         pagePath: "pages/develop/index/index",
-        text: "开发者工具",
+        text: "开发",
         iconPath: "./assets/images/menus/develop-unselected.png",
         selectedIconPath: "./assets/images/menus/develop-selected.png",
       },

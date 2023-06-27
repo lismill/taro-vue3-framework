@@ -1,4 +1,4 @@
 export default {
   backgroundColor: "#ffffff",
-  navigationBarTitleText: "登录系统",
+  navigationBarTitleText: "注册账号",
 };

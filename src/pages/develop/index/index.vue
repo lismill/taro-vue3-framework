@@ -6,7 +6,7 @@
           v-for="{ title, path } in item.children"
           :key="title"
           :title="title"
-          @click="jump(path)"
+          @click="useJumpPath(path)"
         ></nut-cell>
       </nut-cell-group>
     </template>
@@ -14,9 +14,8 @@
 </template>
 
 <script setup lang="ts">
-import Taro from "@tarojs/taro";
 import "./index.scss";
-
+import { useJumpPath } from "@/hooks/useJumpPath";
 const lists = [
   {
     title: "基础组件",
@@ -30,19 +29,11 @@ const lists = [
   {
     title: "业务组件",
     children: [
-      {
-        title: "登录",
-        path: "/pages/_login/index",
-      },
-      {
-        title: "引导",
-        path: "/pages/develop/tour/index",
-      },
+      { title: "登录系统", path: "/pages/_login/index" },
+      { title: "注册账号", path: "/pages/_register/index" },
+      { title: "找回密码", path: "/pages/_forget-password/index" },
+      { title: "引导", path: "/pages/develop/tour/index" },
     ],
   },
 ];
-
-const jump = (url: string) => {
-  Taro.navigateTo({ url });
-};
 </script>

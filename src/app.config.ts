@@ -7,6 +7,7 @@ export default defineAppConfig({
     "pages/develop/index/index",
     "pages/develop/tour/index",
     "pages/develop/card/index",
+    "pages/develop/home-1/index",
 
     // _login
     "pages/_login/index",

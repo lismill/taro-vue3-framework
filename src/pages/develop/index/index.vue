@@ -33,6 +33,7 @@ const lists = [
       { title: "注册账号", path: "/pages/_register/index" },
       { title: "找回密码", path: "/pages/_forget-password/index" },
       { title: "引导", path: "/pages/develop/tour/index" },
+      { title: "首页-1", path: "/pages/develop/home-1/index" },
     ],
   },
 ];
